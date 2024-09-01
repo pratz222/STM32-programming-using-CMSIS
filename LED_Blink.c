@@ -12,9 +12,9 @@ int main(void){
   GPIOC->ODR |= 0x2000;                // Set the PIN as HIGH in the Output Data Register
 
   while(1){
-    GPIOC->ODR |= 0x2000;              // LED ON
+    GPIOC->ODR |= 0x2000;   // (1<<13)                  // LED ON
     delay(500000);
-    GPIOC->ODR |= 0x0000;              // LED OFF
+    GPIOC->ODR &= 0x0000;   // ~(1<<13)                // LED OFF
     delay(500000);
   }
 }
